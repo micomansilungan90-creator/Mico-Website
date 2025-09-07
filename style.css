@@ -1,0 +1,268 @@
+:root {
+  --primary: #6424a0;
+  --dark: #222;
+  --light: #fff;
+  --gradient: linear-gradient(45deg, #6424a0, #0078ff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background: var(--light);
+  color: var(--dark);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Header */
+header {
+  background: var(--gradient);
+  color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: color 0.3s, border-bottom 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #000;
+  color: #fff;
+}
+
+.dark-mode header {
+  background: #000;
+}
+
+.dark-mode footer {
+  background: #000;
+}
+
+/* Hero Section */
+.hero {
+  background: url('pngtree-code-and-design-on-computer-building-websites-and-apps-for-seo-picture-image_5782893.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(40px);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 22px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  gap: 20px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.feature {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translate(-10px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.feature i {
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* About */
+.about {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Contact */
+.contact {
+  background: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact input, 
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact button {
+  background: var(--gradient);
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.contact button:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: var(--gradient);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+/* Scroll to top button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Menu */
+#hamburgerBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  .features {
+    flex-direction: column;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: var(--gradient);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  nav.show {
+    display: flex;
+  }
+  #hamburgerBtn {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  nav a {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+}
